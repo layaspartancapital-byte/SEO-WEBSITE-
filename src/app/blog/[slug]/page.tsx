@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllPosts, getAllSlugs, getPostBySlug } from '@/lib/blogPosts'
-import { articleSchema, breadcrumbSchema } from '@/lib/schema'
+import { enhancedArticleSchema, breadcrumbSchema, faqSchema } from '@/lib/schema'
 import BlogContent from './BlogContent'
 import BlogCTAClient from './BlogCTAClient'
 
@@ -38,7 +38,7 @@ export default function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            articleSchema(post.title, post.description, `/blog/${post.slug}`, post.date, post.date, post.author)
+            enhancedArticleSchema(post.title, post.description, `/blog/${post.slug}`, post.date, post.dateModified, post.author, post.authorTitle, post.quickAnswer || undefined)
           ),
         }}
       />
@@ -54,6 +54,14 @@ export default function BlogPostPage({ params }: Props) {
           ),
         }}
       />
+      {post.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema(post.faqs)),
+          }}
+        />
+      )}
 
       <article className="bg-ink pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
@@ -70,9 +78,9 @@ export default function BlogPostPage({ params }: Props) {
 
           <div className="flex items-center gap-4 text-sm text-white/40 mb-8 pb-8 border-b border-ink-border">
             <span>{post.author}</span>
-            <span>·</span>
+            <span>&middot;</span>
             <span>{post.date}</span>
-            <span>·</span>
+            <span>&middot;</span>
             <span>{post.readingTime}</span>
           </div>
 
