@@ -2,7 +2,7 @@ export const SITE = {
   name: 'Omnivance Media Group',
   tagline: 'Every Channel. Every Touchpoint. Every Result.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://omnivancemedia.com',
-  calendly: process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/omnivance',
+  calendly: process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/omnivancemedia/30min',
   zapierWebhook: process.env.NEXT_PUBLIC_ZAPIER_WEBHOOK_URL || '',
   vslVideo: process.env.NEXT_PUBLIC_VSL_VIDEO_URL || '',
 }
