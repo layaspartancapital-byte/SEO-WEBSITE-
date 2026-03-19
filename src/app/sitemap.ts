@@ -29,5 +29,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...servicePages, ...blogPages]
+  const cities = [
+    { city: 'New York', state: 'NY' },
+    { city: 'Los Angeles', state: 'CA' },
+    { city: 'Chicago', state: 'IL' },
+    { city: 'Houston', state: 'TX' },
+    { city: 'Miami', state: 'FL' },
+    { city: 'Atlanta', state: 'GA' },
+    { city: 'Dallas', state: 'TX' },
+    { city: 'Seattle', state: 'WA' },
+    { city: 'Boston', state: 'MA' },
+    { city: 'Philadelphia', state: 'PA' },
+  ]
+
+  const locationPages = cities.map((c) => ({
+    url: `${baseUrl}/locations/${c.city.toLowerCase().replace(/\s/g, '-')}-${c.state.toLowerCase()}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  return [...staticPages, ...servicePages, ...blogPages, ...locationPages]
 }
