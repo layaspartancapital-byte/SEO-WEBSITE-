@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { SERVICES } from '@/lib/constants'
-import { blogPosts } from '@/lib/blogPosts'
+import { getAllPosts } from '@/lib/blogPosts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://omnivancemedia.com'
@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  const blogPages = blogPosts.map((p) => ({
+  const blogPages = getAllPosts().map((p) => ({
     url: `${baseUrl}/blog/${p.slug}`,
     lastModified: new Date(p.date),
     changeFrequency: 'monthly' as const,
