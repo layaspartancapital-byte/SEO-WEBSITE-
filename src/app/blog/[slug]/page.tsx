@@ -1,20 +1,21 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { blogPosts } from '@/lib/blogPosts'
+import { getAllPosts, getAllSlugs, getPostBySlug } from '@/lib/blogPosts'
 import { articleSchema, breadcrumbSchema } from '@/lib/schema'
 import BlogContent from './BlogContent'
+import BlogCTAClient from './BlogCTAClient'
 
 type Props = {
   params: { slug: string }
 }
 
 export function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }))
+  return getAllSlugs().map((slug) => ({ slug }))
 }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const post = blogPosts.find((p) => p.slug === params.slug)
+  const post = getPostBySlug(params.slug)
   if (!post) return {}
   return {
     title: post.title,
@@ -25,10 +26,11 @@ export function generateMetadata({ params }: Props): Metadata {
 }
 
 export default function BlogPostPage({ params }: Props) {
-  const post = blogPosts.find((p) => p.slug === params.slug)
+  const post = getPostBySlug(params.slug)
   if (!post) notFound()
 
-  const relatedPosts = blogPosts.filter((p) => post.relatedSlugs.includes(p.slug))
+  const allPosts = getAllPosts()
+  const relatedPosts = allPosts.filter((p) => post.relatedSlugs.includes(p.slug))
 
   return (
     <>
@@ -100,15 +102,9 @@ export default function BlogPostPage({ params }: Props) {
         <div className="max-w-xl mx-auto">
           <h2 className="text-2xl mb-4">Ready to Put These Strategies to Work?</h2>
           <p className="mb-6">Book a free strategy call and let our team build a growth plan for your business.</p>
-          <BlogCTA />
+          <BlogCTAClient />
         </div>
       </section>
     </>
   )
 }
-
-function BlogCTA() {
-  return <BlogCTAClient />
-}
-
-import BlogCTAClient from './BlogCTAClient'
