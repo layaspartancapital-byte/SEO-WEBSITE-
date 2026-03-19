@@ -108,14 +108,14 @@ export default function AboutContent() {
           {[
             {
               name: 'Laya Shah',
-              title: 'Founder & CEO',
+              title: 'Co-Founder & COO',
               initial: 'L',
               quote:
                 'We built Omnivance because businesses deserve more than cookie-cutter marketing. Every client gets our full attention, every channel, every touchpoint — until they dominate their market.',
             },
             {
               name: 'Matthew Torres',
-              title: 'Co-Founder & Partner',
+              title: 'Co-Founder & CEO',
               initial: 'M',
               quote:
                 'Our approach is simple: build systems that compound. SEO, content, CRM, paid ads — when these work together, the results are exponential. That\u2019s what we build for every client.',
