@@ -7,7 +7,7 @@ export interface ServicePageData {
   process: { title: string; description: string }[]
   whyItMatters: string
   tools: string[]
-  results: { stat: string; description: string }[]
+  results: { stat: string; description: string; tag?: string }[]
   faqs: { question: string; answer: string }[]
   relatedServices: string[]
 }
@@ -47,8 +47,14 @@ Local SEO is critical for businesses with physical locations or service areas. W
 The businesses that invest in SEO today are building an asset that generates leads, sales, and revenue for years to come. The businesses that wait are giving their competitors an ever-widening head start that becomes exponentially harder to close.`,
     tools: ['Google Search Console', 'Ahrefs', 'Screaming Frog', 'Surfer SEO', 'SEMrush', 'Google Analytics 4', 'Schema Pro', 'PageSpeed Insights'],
     results: [
-      { stat: '312% organic traffic increase', description: 'for a B2B SaaS company in 8 months through technical SEO fixes and content strategy.' },
-      { stat: '#1 ranking for 47 target keywords', description: 'for a regional law firm, generating 120+ qualified leads per month.' },
+      { stat: '847% increase in organic traffic', description: 'E-commerce brand saw massive organic growth in just 6 months through technical SEO and content strategy.', tag: 'E-commerce · 6 months' },
+      { stat: 'Page 1 rankings for 127 keywords', description: 'SaaS company captured high-intent search terms across their entire product category.', tag: 'SaaS · 4 months' },
+      { stat: "#1 position for 'digital marketing agency NJ'", description: 'Local business dominated their primary geo-targeted keyword against 50+ competitors.', tag: 'Local Business · 3 months' },
+      { stat: '340% more qualified leads from organic', description: 'B2B software company tripled inbound pipeline by targeting bottom-of-funnel keywords.', tag: 'B2B Software' },
+      { stat: 'From 0 to 50K monthly visitors', description: 'Startup built an organic traffic engine from scratch with topic clusters and link building.', tag: 'Startup · 8 months' },
+      { stat: '89% reduction in cost per acquisition', description: 'E-commerce brand shifted budget from paid to organic, slashing CPA while growing volume.', tag: 'E-commerce · vs Paid Ads' },
+      { stat: '2.3M impressions in first year', description: 'Content strategy client built massive brand visibility through long-form SEO content.', tag: 'Content Strategy · 12 months' },
+      { stat: 'Featured in AI Overviews for 43 queries', description: 'Professional services firm captured Google AI Overview citations across their expertise areas.', tag: 'Professional Services' },
     ],
     faqs: [
       { question: 'How long does SEO take to show results?', answer: 'Most clients see measurable improvements in organic traffic within 3-4 months, with significant revenue impact by month 6. SEO is a compounding investment — results accelerate over time as domain authority grows.' },
@@ -94,8 +100,14 @@ The technical requirements for AEO and GEO are distinct from traditional SEO. Wh
 We have tracked AI search patterns across thousands of queries in dozens of industries. The data is clear: brands that invest in AEO and GEO now see 3-5x more AI search citations within 90 days, driving qualified traffic from a channel that most competitors don\'t even know exists.`,
     tools: ['ChatGPT', 'Perplexity', 'Google AI Overviews', 'Bing Copilot', 'Schema.org', 'Google Knowledge Graph API', 'Wikipedia', 'Wikidata'],
     results: [
-      { stat: 'Cited in 73% of relevant ChatGPT queries', description: 'for a SaaS company within 4 months of AEO implementation.' },
-      { stat: 'Top Perplexity source for 31 industry terms', description: 'for a financial services firm through entity optimization and content restructuring.' },
+      { stat: 'Cited in 73% of ChatGPT queries', description: 'SaaS company became the go-to AI citation within 4 months of AEO implementation.', tag: 'SaaS · 4 months' },
+      { stat: 'Top Perplexity source for 31 terms', description: 'Financial services firm dominated AI search through entity optimization.', tag: 'Financial Services' },
+      { stat: 'Featured in 89 Google AI Overviews', description: 'Healthcare brand captured AI Overview citations across symptom and treatment queries.', tag: 'Healthcare · 6 months' },
+      { stat: '5× increase in AI-referred traffic', description: 'E-commerce brand saw massive traffic from ChatGPT and Perplexity referrals.', tag: 'E-commerce · 5 months' },
+      { stat: 'Bing Copilot cites brand in 62% of queries', description: 'B2B services firm became the default recommendation for their category.', tag: 'B2B Services' },
+      { stat: 'Wikipedia entity created & verified', description: 'Tech startup built Knowledge Graph presence from zero, triggering AI model recognition.', tag: 'Tech Startup · 3 months' },
+      { stat: '340% more branded AI mentions', description: 'Consulting firm went from invisible to dominant across all major AI platforms.', tag: 'Consulting · 6 months' },
+      { stat: 'First-page Perplexity for 18 money keywords', description: 'Legal services firm captured high-value AI search real estate in competitive space.', tag: 'Legal Services' },
     ],
     faqs: [
       { question: 'What is AEO (Answer Engine Optimization)?', answer: 'AEO is the process of optimizing your brand and content to be cited by AI-powered search engines like ChatGPT, Perplexity, and Google AI Overviews when users ask questions relevant to your business.' },
@@ -141,8 +153,14 @@ We manage campaigns across every major platform because we believe in meeting yo
 Transparency is non-negotiable. Every client gets access to real-time dashboards showing spend, conversions, cost per acquisition, and return on ad spend. No vanity metrics. No hidden fees. Just clear data showing how every dollar performs.`,
     tools: ['Google Ads', 'Meta Business Suite', 'YouTube Studio', 'Microsoft Advertising', 'Google Analytics 4', 'Hotjar', 'Unbounce', 'Triple Whale'],
     results: [
-      { stat: '4.2× ROAS in 60 days', description: 'for a law firm running Google and Meta campaigns with custom landing pages.' },
-      { stat: '$2.3M in attributable revenue', description: 'for an e-commerce brand in 12 months across Google Shopping and Meta retargeting.' },
+      { stat: '4.2× ROAS in 60 days', description: 'Law firm achieved 4.2× return on Google and Meta campaigns with custom landing pages.', tag: 'Legal · Google + Meta' },
+      { stat: '$2.3M in attributable revenue', description: 'E-commerce brand generated massive revenue across Google Shopping and Meta retargeting.', tag: 'E-commerce · 12 months' },
+      { stat: '67% lower cost per lead', description: 'Home services company cut CPL by restructuring campaigns and fixing conversion tracking.', tag: 'Home Services · 3 months' },
+      { stat: '1,247 qualified leads per month', description: 'SaaS company scaled from 200 to 1,200+ monthly leads with Performance Max campaigns.', tag: 'SaaS · Google Ads' },
+      { stat: '$14 cost per booked appointment', description: 'Med spa achieved dramatically low CPA with hyper-targeted Meta ads and lookalike audiences.', tag: 'Healthcare · Meta Ads' },
+      { stat: '8.7× ROAS on YouTube pre-roll', description: 'DTC brand drove massive returns with video ads targeting competitor audiences.', tag: 'DTC · YouTube' },
+      { stat: '312% increase in monthly revenue', description: 'Restaurant chain tripled revenue through coordinated Google, Meta, and Bing campaigns.', tag: 'Restaurant · Multi-platform' },
+      { stat: '$0.47 cost per click on Bing', description: 'Insurance company found 70% cheaper clicks on Bing vs Google with same conversion rates.', tag: 'Insurance · Bing Ads' },
     ],
     faqs: [
       { question: 'What is a good ROAS for paid advertising?', answer: 'A "good" ROAS depends on your margins and business model. E-commerce brands typically target 3-5× ROAS, while service businesses with high lifetime values can be profitable at 2-3× ROAS. We set custom benchmarks based on your unit economics.' },
@@ -186,8 +204,14 @@ The key advantage of TV advertising over purely digital channels is the halo eff
 Attribution has been the historical challenge of TV advertising, but modern technology has solved this problem. We implement multi-touch attribution models that track the path from TV exposure to website visit, phone call, and sale. Our clients can see exactly how their TV investment contributes to revenue, making the decision to scale simple and data-driven.`,
     tools: ['Adobe Premiere Pro', 'DaVinci Resolve', 'Hulu Ad Manager', 'Roku Ads', 'YouTube TV', 'The Trade Desk', 'SpotX', 'Nielsen'],
     results: [
-      { stat: '6× increase in branded search', description: 'for an auto dealership group within 30 days of launching CTV campaigns.' },
-      { stat: '$1.2M in attributed revenue', description: 'from a 3-month OTT campaign for a home services franchise.' },
+      { stat: '6× increase in branded search', description: 'Auto dealership group saw brand searches explode within 30 days of CTV launch.', tag: 'Automotive · CTV · 30 days' },
+      { stat: '$1.2M in attributed revenue', description: 'Home services franchise tracked $1.2M directly to their OTT campaign.', tag: 'Home Services · 3 months' },
+      { stat: '4.1M impressions in first flight', description: 'Regional hospital system reached massive audience with targeted Hulu campaigns.', tag: 'Healthcare · Hulu' },
+      { stat: '340% lift in website traffic', description: 'Luxury auto brand saw massive traffic spikes correlated with streaming ad flights.', tag: 'Luxury · Roku' },
+      { stat: '23% increase in showroom visits', description: 'Furniture retailer tracked foot traffic lift from CTV exposure using location data.', tag: 'Retail · CTV' },
+      { stat: '$0.012 cost per completed view', description: 'Education company achieved remarkably efficient video completion rates on YouTube TV.', tag: 'Education · YouTube TV' },
+      { stat: '87% ad completion rate', description: 'Financial services firm saw near-total viewthrough on premium streaming inventory.', tag: 'Finance · OTT' },
+      { stat: '2.8× higher recall vs digital-only', description: 'A/B test showed CTV + digital campaigns drove significantly higher brand recall.', tag: 'Brand Lift Study' },
     ],
     faqs: [
       { question: 'How much does a TV commercial cost to produce?', answer: 'Our commercial production packages start at $5,000 for a professionally produced 30-second spot. Complex productions with multiple locations, talent, and advanced visual effects range from $15,000 to $50,000+.' },
@@ -231,8 +255,14 @@ User-generated content (UGC) has emerged as one of the highest-converting conten
 The ROI of professional content production extends far beyond the content itself. High-quality brand photography elevates your entire web presence. Professional video testimonials close deals in your sales pipeline. Social media content builds an organic audience that reduces your dependency on paid advertising over time. Every piece of content we produce is an asset that continues to generate value.`,
     tools: ['Adobe Premiere Pro', 'After Effects', 'Lightroom', 'Figma', 'CapCut', 'DaVinci Resolve', 'Canon Cinema EOS', 'DJI'],
     results: [
-      { stat: '340% increase in social engagement', description: 'for a DTC brand after switching to platform-native content strategy.' },
-      { stat: '2.4× conversion rate improvement', description: 'on landing pages with professional video testimonials vs. text-only testimonials.' },
+      { stat: '340% increase in social engagement', description: 'DTC brand saw engagement explode after switching to platform-native content.', tag: 'DTC · Social Content' },
+      { stat: '2.4× conversion rate improvement', description: 'Landing pages with professional video testimonials dramatically outperformed text-only.', tag: 'Conversion · Video' },
+      { stat: '12M views on single Reel series', description: 'Fitness brand went viral with a 5-part Reel series produced in one shoot day.', tag: 'Fitness · Instagram' },
+      { stat: '67% reduction in creative costs', description: 'E-commerce company replaced expensive agency shoots with our monthly retainer.', tag: 'E-commerce · Cost Savings' },
+      { stat: '4.2× more UGC ad conversions', description: 'Beauty brand saw UGC-style ads outperform polished studio creative by 4×.', tag: 'Beauty · UGC' },
+      { stat: '850K YouTube views in first month', description: 'Tech startup launch video exceeded all expectations with strategic distribution.', tag: 'Tech · YouTube' },
+      { stat: '28% higher email click-through rate', description: 'Adding video thumbnails to email campaigns boosted CTR for a B2B company.', tag: 'B2B · Email Video' },
+      { stat: '15 assets from 1 shoot day', description: 'Restaurant chain got a full month of content from a single production session.', tag: 'Restaurant · Efficiency' },
     ],
     faqs: [
       { question: 'What types of video do you produce?', answer: 'We produce brand videos, product demos, customer testimonials, social media content (Reels, TikToks, Shorts), explainer videos, event coverage, and performance ad creative.' },
@@ -276,8 +306,14 @@ We work with every major CRM platform — Salesforce, HubSpot, Zoho, GoHighLevel
 The businesses that invest in CRM automation see immediate, measurable results. Our clients typically report a 30-50% reduction in lead response time, a 25-40% increase in conversion rates, and 15-20 hours per week saved on manual tasks within the first 30 days of implementation.`,
     tools: ['Salesforce', 'HubSpot', 'Zoho CRM', 'GoHighLevel', 'Monday.com', 'Pipedrive', 'Zapier', 'Make (Integromat)'],
     results: [
-      { stat: '47% increase in close rate', description: 'for a B2B services company after implementing automated lead scoring and follow-up sequences.' },
-      { stat: '20 hours/week saved', description: 'for a real estate team by automating lead distribution, follow-ups, and pipeline management.' },
+      { stat: '47% increase in close rate', description: 'B2B services company closed nearly half more deals with automated lead scoring.', tag: 'B2B Services · HubSpot' },
+      { stat: '20 hours/week saved', description: 'Real estate team automated lead distribution, follow-ups, and pipeline management.', tag: 'Real Estate · GoHighLevel' },
+      { stat: '3× faster lead response time', description: 'Insurance agency went from 4-hour average response to under 5 minutes with automation.', tag: 'Insurance · Salesforce' },
+      { stat: '91% CRM adoption rate', description: 'Construction company achieved near-total team adoption after our training program.', tag: 'Construction · Zoho' },
+      { stat: '$420K recovered from dead leads', description: 'Law firm reactivated cold leads with automated nurture sequences and won new cases.', tag: 'Legal · Reactivation' },
+      { stat: '156% increase in repeat purchases', description: 'E-commerce brand automated post-purchase sequences that drove massive repeat revenue.', tag: 'E-commerce · HubSpot' },
+      { stat: '0 leads dropped in 6 months', description: 'Home services company went from losing 30% of leads to 100% follow-up with automation.', tag: 'Home Services · GHL' },
+      { stat: '34% higher average deal value', description: 'Consulting firm used CRM insights to identify and prioritize highest-value opportunities.', tag: 'Consulting · Salesforce' },
     ],
     faqs: [
       { question: 'Which CRM platform is best for my business?', answer: 'It depends on your business size, complexity, and budget. Salesforce is ideal for enterprise. HubSpot excels for inbound marketing. GoHighLevel is purpose-built for agencies and local businesses. We provide a free assessment and recommendation.' },
@@ -323,8 +359,14 @@ Security is built into every layer of our development process. We follow OWASP s
 The businesses that invest in custom software gain capabilities their competitors simply do not have. A custom analytics dashboard that provides real-time insights your industry has never seen. An internal tool that automates a 4-hour daily process into a 5-minute task. A customer portal that delivers a buying experience no off-the-shelf platform can match.`,
     tools: ['React', 'Next.js', 'Node.js', 'Python', 'PostgreSQL', 'AWS', 'Docker', 'GitHub'],
     results: [
-      { stat: '4 hours/day saved per employee', description: 'with a custom operations dashboard that automated manual reporting for a logistics company.' },
-      { stat: '$2.1M in new revenue', description: 'from a custom SaaS product we built and launched for a client in the education space.' },
+      { stat: '4 hours/day saved per employee', description: 'Logistics company automated manual reporting with a custom operations dashboard.', tag: 'Logistics · Dashboard' },
+      { stat: '$2.1M in new revenue', description: 'Education company launched a custom SaaS product that generated massive new revenue.', tag: 'Education · SaaS' },
+      { stat: '99.97% uptime over 18 months', description: 'Healthcare portal maintained near-perfect availability for 50K+ daily active users.', tag: 'Healthcare · Web App' },
+      { stat: '60% reduction in operational costs', description: 'Manufacturing firm replaced 4 SaaS subscriptions with one custom internal tool.', tag: 'Manufacturing · Internal Tool' },
+      { stat: '12-week MVP to market', description: 'Fintech startup went from idea to paying customers in under 3 months.', tag: 'Fintech · MVP' },
+      { stat: '3× faster order processing', description: 'Wholesale distributor tripled throughput with a custom order management system.', tag: 'Wholesale · Automation' },
+      { stat: '45K monthly active users', description: 'Community platform built from scratch scaled to 45K MAU within first year.', tag: 'Community · Web App' },
+      { stat: '$380K/year saved vs enterprise software', description: 'Insurance company built custom CRM for a fraction of Salesforce Enterprise costs.', tag: 'Insurance · Cost Savings' },
     ],
     faqs: [
       { question: 'How much does custom software cost?', answer: 'Custom software projects typically range from $25,000 for simple internal tools to $250,000+ for full SaaS platforms. We provide detailed proposals with fixed pricing after a scoping phase.' },
@@ -368,8 +410,14 @@ Real-time alerts transform reactive management into proactive management. When y
 For agencies and multi-location businesses, we build white-label dashboard solutions that provide each client or location with their own branded reporting portal. This replaces manual monthly reports with always-on, always-current dashboards that increase transparency and client satisfaction.`,
     tools: ['React', 'D3.js', 'PostgreSQL', 'Google BigQuery', 'Looker Studio', 'REST APIs', 'GraphQL', 'AWS Lambda'],
     results: [
-      { stat: '40 hours/month saved on reporting', description: 'for a multi-location franchise by automating manual report generation across 25 locations.' },
-      { stat: '$180K in recovered ad spend', description: 'by implementing real-time budget alerts that caught overspending within minutes instead of days.' },
+      { stat: '40 hours/month saved on reporting', description: 'Multi-location franchise automated report generation across 25 locations.', tag: 'Franchise · 25 locations' },
+      { stat: '$180K in recovered ad spend', description: 'Real-time budget alerts caught overspending within minutes instead of days.', tag: 'E-commerce · Alerts' },
+      { stat: '100% real-time data accuracy', description: 'Eliminated manual data entry errors that were causing $50K+ in misallocated budget.', tag: 'Agency · Data Quality' },
+      { stat: '15 data sources unified', description: 'Marketing agency consolidated Google, Meta, CRM, and billing into one dashboard.', tag: 'Agency · Integration' },
+      { stat: '3-minute daily check replaces 2-hour report', description: 'CEO went from 2-hour Monday reporting meetings to a quick daily dashboard scan.', tag: 'SaaS · Executive Dashboard' },
+      { stat: '92% client retention improvement', description: 'Agency saw client churn drop dramatically after providing always-on branded dashboards.', tag: 'Agency · White-Label' },
+      { stat: 'Detected $43K anomaly in 11 minutes', description: 'Automated alert caught a billing error that would have gone unnoticed for weeks.', tag: 'Finance · Real-Time Alerts' },
+      { stat: '8 custom KPIs tracked in real-time', description: 'Franchise built proprietary performance metrics unavailable in any off-the-shelf tool.', tag: 'Franchise · Custom KPIs' },
     ],
     faqs: [
       { question: 'What data sources can you connect?', answer: 'We can connect any platform with an API — Google Ads, Meta, Google Analytics, Salesforce, HubSpot, Stripe, QuickBooks, Shopify, and hundreds of others. If it has an API, we can integrate it.' },
@@ -413,8 +461,14 @@ Trade shows and events represent concentrated opportunities to connect with pros
 The businesses that maintain a strategic offline presence build stronger brands, reach audiences that digital advertising misses, and create multiple touchpoints that reinforce their message across the customer journey. Offline marketing is not a relic of the past — it is an underutilized competitive advantage.`,
     tools: ['Adobe InDesign', 'Adobe Illustrator', 'Cision', 'PR Newswire', 'Muck Rack', 'QR Code generators', 'CallRail', 'Google UTM Builder'],
     results: [
-      { stat: '23 media placements in 60 days', description: 'including Forbes, local news, and 4 trade publications for a fintech startup.' },
-      { stat: '$340K in tracked revenue from print', description: 'using QR code attribution for a luxury home builder\'s magazine campaign.' },
+      { stat: '23 media placements in 60 days', description: 'Fintech startup secured coverage in Forbes, local news, and 4 trade publications.', tag: 'Fintech · PR' },
+      { stat: '$340K in tracked revenue from print', description: 'Luxury home builder tracked revenue directly from magazine ads via QR codes.', tag: 'Luxury · Print' },
+      { stat: '147 journalist relationships built', description: 'B2B company built a media network that generates ongoing earned coverage.', tag: 'B2B · Media Relations' },
+      { stat: '8.2% direct mail response rate', description: 'HVAC company achieved exceptional response rates with targeted seasonal mailers.', tag: 'Home Services · EDDM' },
+      { stat: 'Forbes feature in first month', description: 'CEO thought-leadership placement secured through strategic HARO responses.', tag: 'Executive · Forbes' },
+      { stat: '2,400 event leads captured', description: 'Trade show booth design and strategy generated massive lead volume in 3 days.', tag: 'B2B · Trade Show' },
+      { stat: '340% ROI on magazine campaign', description: 'Regional restaurant tracked 3.4× return on a targeted local magazine buy.', tag: 'Restaurant · Print' },
+      { stat: '12 press pickups from 1 release', description: 'Strategic press release with newsworthy angle achieved viral distribution.', tag: 'Tech · PR Newswire' },
     ],
     faqs: [
       { question: 'Is print advertising still effective?', answer: 'Yes, when targeted strategically. Trade publications reach concentrated audiences of decision-makers. Direct mail achieves 5-9× higher response rates than email. Print builds credibility that digital alone cannot match.' },
@@ -458,8 +512,14 @@ A strong brand identity reduces marketing costs over time. When your brand is im
 The brands that invest in professional identity design are making a strategic decision about how the market perceives their value. In a world where consumers are bombarded with thousands of brand messages daily, a cohesive, premium visual identity is the difference between being noticed and being ignored.`,
     tools: ['Figma', 'Adobe Illustrator', 'Adobe InDesign', 'Coolors', 'Google Fonts', 'Fontjoy', 'Brandmark', 'Notion'],
     results: [
-      { stat: '40% increase in average deal size', description: 'after a full rebrand for a consulting firm that elevated their perceived market positioning.' },
-      { stat: '3× brand recognition', description: 'measured through surveys after a visual identity overhaul for a regional restaurant chain.' },
+      { stat: '40% increase in average deal size', description: 'Consulting firm elevated market positioning with a complete rebrand.', tag: 'Consulting · Rebrand' },
+      { stat: '3× brand recognition', description: 'Regional restaurant chain tripled recognition after visual identity overhaul.', tag: 'Restaurant · Survey Data' },
+      { stat: '23% premium pricing achieved', description: 'SaaS company successfully raised prices after repositioning as premium brand.', tag: 'SaaS · Positioning' },
+      { stat: '92% stakeholder approval on first round', description: 'Healthcare system brand redesign achieved near-unanimous internal buy-in.', tag: 'Healthcare · Efficiency' },
+      { stat: '5× more inbound partnership inquiries', description: 'Tech company attracted premium partners after professional brand elevation.', tag: 'Tech · Partnerships' },
+      { stat: '67% higher social engagement', description: 'New visual identity system dramatically increased social media performance.', tag: 'DTC · Social Impact' },
+      { stat: '4-week delivery for full brand system', description: 'Startup went from no brand to complete identity system in under a month.', tag: 'Startup · Speed' },
+      { stat: '100% brand consistency across 12 locations', description: 'Franchise achieved perfect brand alignment with comprehensive guidelines.', tag: 'Franchise · Consistency' },
     ],
     faqs: [
       { question: 'How much does branding cost?', answer: 'Full brand identity projects range from $8,000 for emerging brands to $50,000+ for enterprise rebrands. This includes strategy, logo design, visual system, guidelines, and core collateral.' },
@@ -503,8 +563,14 @@ Response tracking has also transformed direct mail. Every piece we send includes
 For local businesses — home services, healthcare, real estate, restaurants, fitness studios — direct mail is often the highest-ROI channel in their marketing mix. It reaches people in their homes, in their neighborhood, at the exact moment they are most receptive to local services. The businesses that leverage direct mail while their competitors focus exclusively on digital are capturing customers that digital advertising simply cannot reach.`,
     tools: ['USPS EDDM', 'PostcardMania', 'Adobe InDesign', 'CallRail', 'QR Code Tracking', 'Google UTM Builder', 'AccuData', 'Data.com'],
     results: [
-      { stat: '6.2% response rate', description: 'for a dental practice EDDM campaign targeting 15,000 households within 5 miles.' },
-      { stat: '$47 cost per new customer', description: 'for a home cleaning service through targeted direct mail with coupon tracking.' },
+      { stat: '6.2% response rate', description: 'Dental practice achieved exceptional response from EDDM targeting 15K households.', tag: 'Dental · EDDM' },
+      { stat: '$47 cost per new customer', description: 'Home cleaning service acquired customers at remarkably low cost through mail + coupons.', tag: 'Home Services · CPA' },
+      { stat: '1,340 new patients in 6 months', description: 'Medical practice built patient volume through consistent monthly EDDM campaigns.', tag: 'Healthcare · 6 months' },
+      { stat: '4.8% response vs 0.3% email', description: 'A/B test showed direct mail outperformed email by 16× for same offer and audience.', tag: 'Insurance · A/B Test' },
+      { stat: '$12 cost per appointment booked', description: 'Chiropractor achieved dramatically low booking costs with targeted postcard series.', tag: 'Healthcare · Postcards' },
+      { stat: '23% of zip code converted', description: 'Pizza restaurant converted nearly a quarter of targeted households in first campaign.', tag: 'Restaurant · EDDM' },
+      { stat: '890 QR code scans in first week', description: 'Real estate agent tracked massive engagement from just 5,000 mailers.', tag: 'Real Estate · QR Tracking' },
+      { stat: '3.1× ROI on first campaign', description: 'HVAC company saw positive ROI from very first mailing, scaling to monthly cadence.', tag: 'Home Services · ROI' },
     ],
     faqs: [
       { question: 'What is EDDM (Every Door Direct Mail)?', answer: 'EDDM is a USPS service that lets you mail to every household on specific postal routes without needing a mailing list. It is the most cost-effective way to reach geographically targeted audiences, with costs as low as $0.18 per piece.' },
@@ -550,8 +616,14 @@ The businesses that treat social media as a strategic marketing channel — with
 Influencer partnerships extend your brand\'s reach to established audiences that trust the recommendations of creators they follow. We identify influencers whose audiences align with your target market, negotiate partnerships that deliver measurable results, and manage the entire collaboration process.`,
     tools: ['Later', 'Sprout Social', 'Canva Pro', 'Adobe Creative Suite', 'CapCut', 'Hootsuite', 'Instagram Insights', 'TikTok Analytics'],
     results: [
-      { stat: '0 to 45K followers in 6 months', description: 'for a fitness brand through consistent, platform-native content and strategic hashtag usage.' },
-      { stat: '$22K/month in social-attributed revenue', description: 'for a DTC skincare brand through organic content and influencer partnerships.' },
+      { stat: '0 to 45K followers in 6 months', description: 'Fitness brand grew from scratch with platform-native content and hashtag strategy.', tag: 'Fitness · Instagram' },
+      { stat: '$22K/month in social-attributed revenue', description: 'DTC skincare brand drove consistent revenue through organic + influencer strategy.', tag: 'DTC · Multi-platform' },
+      { stat: '4.7% average engagement rate', description: 'Restaurant chain achieved 10× industry average engagement with video-first strategy.', tag: 'Restaurant · TikTok' },
+      { stat: '2.1M organic reach per month', description: 'B2B company built massive LinkedIn audience with daily thought leadership content.', tag: 'B2B · LinkedIn' },
+      { stat: '340% increase in website traffic from social', description: 'E-commerce brand turned social followers into website visitors with strategic CTAs.', tag: 'E-commerce · Traffic' },
+      { stat: '89 influencer partnerships managed', description: 'Beauty brand scaled influencer program from 5 to 89 creators in one quarter.', tag: 'Beauty · Influencer' },
+      { stat: '12× increase in story engagement', description: 'Hospitality brand transformed Stories from afterthought to primary engagement driver.', tag: 'Hospitality · Stories' },
+      { stat: '$3.20 cost per follower acquired', description: 'Paid social amplification grew audience at fraction of industry benchmark costs.', tag: 'Tech · Paid Social' },
     ],
     faqs: [
       { question: 'Which social platforms should my business be on?', answer: 'It depends on your audience. B2B businesses should prioritize LinkedIn. B2C brands with visual products thrive on Instagram and TikTok. Local businesses need Facebook and Google Business Profile. We recommend focusing on 2-3 platforms and doing them well.' },
