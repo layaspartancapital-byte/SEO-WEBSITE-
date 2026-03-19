@@ -98,6 +98,54 @@ export default function AboutContent() {
         </div>
       </Section>
 
+      {/* From the Founders */}
+      <Section className="bg-ink">
+        <div className="text-center mb-12">
+          <h5 className="mb-4">FROM THE FOUNDERS</h5>
+          <h2>A Message From Our Founders</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              name: 'Laya Shah',
+              title: 'Founder & CEO',
+              initial: 'L',
+              quote:
+                'We built Omnivance because businesses deserve more than cookie-cutter marketing. Every client gets our full attention, every channel, every touchpoint — until they dominate their market.',
+            },
+            {
+              name: 'Matthew Torres',
+              title: 'Co-Founder & Partner',
+              initial: 'M',
+              quote:
+                'Our approach is simple: build systems that compound. SEO, content, CRM, paid ads — when these work together, the results are exponential. That\u2019s what we build for every client.',
+            },
+          ].map((founder) => (
+            <motion.div
+              key={founder.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-ink-mid border border-white/5 rounded-2xl p-8 lg:p-10 flex flex-col"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-ember/20 text-ember flex items-center justify-center text-2xl font-bold shrink-0">
+                  {founder.initial}
+                </div>
+                <div>
+                  <p className="font-display text-lg">{founder.name}</p>
+                  <p className="text-sm text-ember">{founder.title}</p>
+                </div>
+              </div>
+              <blockquote className="text-white/70 leading-relaxed italic text-[15px] border-l-2 border-ember/40 pl-5">
+                &ldquo;{founder.quote}&rdquo;
+              </blockquote>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
       <section className="bg-ink section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'var(--grad-glow)' }} />
         <div className="container-max mx-auto text-center relative z-10">
