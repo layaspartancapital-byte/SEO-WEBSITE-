@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #080808;
+  --ink-soft: #111111;
+  --ink-mid: #161616;
+  --ink-border: #2a2a2a;
+
+  --ember: #E8651A;
+  --ember-bright: #FF7A2F;
+  --ember-dim: #B84D10;
+  --ember-glow: rgba(232, 101, 26, 0.15);
+
+  --white: #FFFFFF;
+  --white-90: rgba(255, 255, 255, 0.90);
+  --white-60: rgba(255, 255, 255, 0.60);
+  --white-30: rgba(255, 255, 255, 0.30);
+  --white-10: rgba(255, 255, 255, 0.08);
+
+  --success: #22C55E;
+  --muted: #6b7280;
+
+  --grad-hero: linear-gradient(135deg, #080808 0%, #1c0d00 50%, #080808 100%);
+  --grad-ember: linear-gradient(135deg, #E8651A 0%, #FF9A5C 100%);
+  --grad-card: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+  --grad-glow: radial-gradient(circle at center, rgba(232, 101, 26, 0.18) 0%, transparent 65%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1 {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+h2 {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+h3 {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+h4 {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--white);
+}
+
+h5 {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+h6 {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white-30);
+}
+
+p {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--white-60);
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-7 py-3.5 rounded-[20px] font-medium text-sm transition-all;
+  background: var(--ember);
+  color: var(--white);
+  font-family: var(--font-inter), sans-serif;
+  animation: ember-pulse 2.5s ease-in-out infinite alternate;
+  will-change: transform, box-shadow;
+}
+
+.btn-primary:hover {
+  background: var(--ember-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(232, 101, 26, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center px-7 py-3.5 rounded-[20px] font-medium text-sm transition-all;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--white-30);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.btn-ghost:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Service cards */
+.service-card {
+  background: var(--grad-card);
+  border: 1px solid var(--ink-border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--ember);
+  box-shadow: 0 0 40px var(--ember-glow);
+}
+
+.service-card:hover .service-icon {
+  color: var(--ember);
+  transform: scale(1.1);
+}
+
+.service-icon {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Ember gradient text */
+.ember-gradient-text {
+  background: var(--grad-ember);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Section base */
+.section-padding {
+  @apply px-4 sm:px-6 lg:px-8 py-20 lg:py-28;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ember-dim);
+}
+
+@keyframes ember-pulse {
+  0% { box-shadow: 0 0 0px rgba(232, 101, 26, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(232, 101, 26, 0.7); }
+}
