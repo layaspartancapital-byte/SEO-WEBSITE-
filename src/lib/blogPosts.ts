@@ -7,7 +7,9 @@ export interface BlogPost {
   title: string
   description: string
   date: string
+  dateModified: string
   author: string
+  authorTitle: string
   readingTime: string
   category: string
   content: string
@@ -17,6 +19,8 @@ export interface BlogPost {
   keyword?: string
   tags?: string[]
   relatedSlugs: string[]
+  faqs: { question: string; answer: string }[]
+  quickAnswer: string
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'src', 'content', 'blog')
@@ -49,6 +53,37 @@ function deriveCategory(keyword?: string, tags?: string[]): string {
 }
 
 /**
+ * Parse FAQ blocks from content. Expects markdown pattern:
+ * ## FAQ or ## Frequently Asked Questions
+ * **Question text?**
+ * Answer text.
+ */
+function parseFAQs(content: string): { question: string; answer: string }[] {
+  const faqs: { question: string; answer: string }[] = []
+  const faqSectionMatch = content.match(/## (?:FAQ|Frequently Asked Questions)[\s\S]*$/i)
+  if (!faqSectionMatch) return faqs
+
+  const faqSection = faqSectionMatch[0]
+  const qaPairs = faqSection.matchAll(/\*\*(.+?)\?\*\*\s*\n+([\s\S]*?)(?=\n\*\*|\n##|$)/g)
+  for (const m of qaPairs) {
+    const question = m[1].trim() + '?'
+    const answer = m[2].trim()
+    if (question && answer) {
+      faqs.push({ question, answer })
+    }
+  }
+  return faqs
+}
+
+/**
+ * Parse quick answer from :::quick-answer directive.
+ */
+function parseQuickAnswer(content: string): string {
+  const match = content.match(/^:::quick-answer\s*\n([\s\S]*?)^:::\s*$/m)
+  return match ? match[1].trim() : ''
+}
+
+/**
  * Parse a single MDX file into a BlogPost object.
  */
 function parseMdxFile(filename: string): BlogPost | null {
@@ -66,7 +101,9 @@ function parseMdxFile(filename: string): BlogPost | null {
     title: data.title,
     description: data.description || '',
     date: data.date ? new Date(data.date).toISOString().split('T')[0] : '',
+    dateModified: data.dateModified ? new Date(data.dateModified).toISOString().split('T')[0] : (data.date ? new Date(data.date).toISOString().split('T')[0] : ''),
     author: data.author || 'Omnivance Media',
+    authorTitle: data.authorTitle || 'Digital Marketing Team',
     readingTime: data.readingTime || calcReadingTime(content),
     category: data.category || deriveCategory(data.keyword, tags),
     content: content.trim(),
@@ -76,6 +113,8 @@ function parseMdxFile(filename: string): BlogPost | null {
     keyword: data.keyword,
     tags,
     relatedSlugs: Array.isArray(data.relatedSlugs) ? data.relatedSlugs : [],
+    faqs: parseFAQs(content),
+    quickAnswer: parseQuickAnswer(content),
   }
 }
 
