@@ -20,8 +20,8 @@ export function organizationSchema() {
       { '@type': 'City', name: 'Dallas' }, { '@type': 'City', name: 'Seattle' },
       { '@type': 'City', name: 'Boston' }, { '@type': 'City', name: 'Philadelphia' },
     ],
-    sameAs: ['https://www.linkedin.com/company/omnivance-media-group', 'https://twitter.com/omnivancemedia', 'https://www.instagram.com/omnivancemedia', 'https://www.facebook.com/omnivancemedia'],
-    contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', availableLanguage: 'English' },
+    sameAs: ['https://www.linkedin.com/company/omnivance-media-group/', 'https://x.com/Omnivancemedia', 'https://www.instagram.com/omnivancemedia/'],
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+1-848-349-2528', email: 'omnivancemedia@gmail.com', availableLanguage: 'English' },
     priceRange: '$',
   }
 }

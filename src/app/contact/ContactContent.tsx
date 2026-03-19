@@ -232,8 +232,11 @@ export default function ContactContent() {
         <div className="container-max mx-auto text-center">
           <h4 className="mb-4">Prefer to reach out directly?</h4>
           <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-white/60">
-            <a href="mailto:hello@omnivancemedia.com" className="hover:text-ember transition-colors">
-              hello@omnivancemedia.com
+            <a href="mailto:omnivancemedia@gmail.com" className="hover:text-ember transition-colors">
+              omnivancemedia@gmail.com
+            </a>
+            <a href="tel:+18483492528" className="hover:text-ember transition-colors">
+              +1 (848) 349-2528
             </a>
             <span>Mon–Fri, 9AM–6PM EST</span>
           </div>

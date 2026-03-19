@@ -50,11 +50,11 @@ export default function WhoThisIsFor() {
           {/* Right */}
           <motion.div variants={slideRight} initial="hidden" animate={controls}>
             <h5 className="mb-4 text-ink/60">This is NOT for you if...</h5>
-            <ul className="space-y-3 mt-8">
+            <ul className="space-y-4 mt-8">
               {notForYou.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-ink/70">
-                  <X className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm">{item}</span>
+                <li key={item} className="flex items-start gap-3 text-ink">
+                  <X className="w-7 h-7 mt-0.5 flex-shrink-0 stroke-[3]" />
+                  <span className="text-lg font-bold leading-snug">{item}</span>
                 </li>
               ))}
             </ul>

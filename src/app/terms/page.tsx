@@ -64,7 +64,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className="text-xl text-white mb-3">Contact</h2>
-              <p>For questions about these Terms of Service, contact us at hello@omnivancemedia.com.</p>
+              <p>For questions about these Terms of Service, contact us at omnivancemedia@gmail.com.</p>
             </div>
           </div>
         </div>
