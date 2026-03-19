@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { openCalendly } from '@/lib/useCalendlyModal'
 import { heroSequence } from '@/lib/animations'
+import { ShopifyLogo, HubSpotLogo, MailchimpLogo, StripeLogo, NikeLogo } from '@/components/MediaLogos'
 import dynamic from 'next/dynamic'
 
 const ParticlesBackground = dynamic(() => import('@/components/ParticlesBackground'), {
@@ -31,6 +32,18 @@ export default function Hero() {
           transition={{ delay: heroSequence.trust.delay, duration: 0.6 }}
         >
           <h6 className="mb-6">TRUSTED BY 300+ GROWING BRANDS</h6>
+        </motion.div>
+
+        {/* Client logos */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: heroSequence.overline.delay, duration: 0.6, ease: springEase }}
+          className="flex items-center justify-center gap-10 mb-10"
+        >
+          {[NikeLogo, ShopifyLogo, HubSpotLogo, MailchimpLogo, StripeLogo].map((Logo, i) => (
+            <Logo key={i} className="h-6 w-auto text-white/40 hover:text-white/70 transition-colors duration-300" />
+          ))}
         </motion.div>
 
         {/* H1 */}

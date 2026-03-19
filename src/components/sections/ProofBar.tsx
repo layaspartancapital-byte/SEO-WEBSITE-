@@ -5,26 +5,7 @@ import CountUp from 'react-countup'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import { STATS } from '@/lib/constants'
 import { fadeUp } from '@/lib/animations'
-
-const ROW_1 = [
-  'Forbes', 'Entrepreneur', 'Business Insider', 'AdWeek', 'Inc Magazine',
-  'Marketing Week', 'Fast Company', 'TechCrunch', 'Wired', 'HubSpot Blog',
-  'Search Engine Journal', 'Moz',
-]
-
-const ROW_2 = [
-  'Neil Patel', 'Content Marketing Institute', 'PR Newswire', 'Cision',
-  'PR Web', 'Business Wire', 'Globe Newswire', 'Yahoo Finance', 'Reuters',
-  'AP News', 'MarketWatch', 'Benzinga',
-]
-
-function LogoItem({ name }: { name: string }) {
-  return (
-    <span className="inline-flex items-center justify-center mx-8 h-8 px-5 text-white/[0.6] text-[13px] font-semibold tracking-wide whitespace-nowrap flex-shrink-0 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(232,101,26,0.5)] cursor-default select-none">
-      {name}
-    </span>
-  )
-}
+import { ROW_1_LOGOS, ROW_2_LOGOS } from '@/components/MediaLogos'
 
 export default function ProofBar() {
   const { ref, controls, isInView } = useScrollReveal()
@@ -37,18 +18,22 @@ export default function ProofBar() {
 
       {/* Marquee Row 1 — scrolls left */}
       <div className="overflow-hidden mb-6">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...ROW_1, ...ROW_1, ...ROW_1].map((name, i) => (
-            <LogoItem key={`r1-${i}`} name={name} />
+        <div className="flex animate-marquee whitespace-nowrap items-center">
+          {[...ROW_1_LOGOS, ...ROW_1_LOGOS, ...ROW_1_LOGOS].map(({ key, Logo }, i) => (
+            <div key={`r1-${key}-${i}`} className="flex-shrink-0 mx-8">
+              <Logo className="h-[28px] w-auto text-white/[0.45] hover:text-white hover:drop-shadow-[0_0_8px_rgba(232,101,26,0.5)] transition-all duration-300 cursor-default" />
+            </div>
           ))}
         </div>
       </div>
 
       {/* Marquee Row 2 — scrolls right */}
       <div className="overflow-hidden mb-12">
-        <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {[...ROW_2, ...ROW_2, ...ROW_2].map((name, i) => (
-            <LogoItem key={`r2-${i}`} name={name} />
+        <div className="flex animate-marquee-reverse whitespace-nowrap items-center">
+          {[...ROW_2_LOGOS, ...ROW_2_LOGOS, ...ROW_2_LOGOS].map(({ key, Logo }, i) => (
+            <div key={`r2-${key}-${i}`} className="flex-shrink-0 mx-8">
+              <Logo className="h-[28px] w-auto text-white/[0.45] hover:text-white hover:drop-shadow-[0_0_8px_rgba(232,101,26,0.5)] transition-all duration-300 cursor-default" />
+            </div>
           ))}
         </div>
       </div>
