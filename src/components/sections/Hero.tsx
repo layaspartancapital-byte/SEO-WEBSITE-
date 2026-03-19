@@ -33,22 +33,6 @@ export default function Hero() {
           <h6 className="mb-6">TRUSTED BY 300+ GROWING BRANDS</h6>
         </motion.div>
 
-        {/* Overline logos placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: heroSequence.overline.delay, duration: 0.6, ease: springEase }}
-          className="flex items-center justify-center gap-8 mb-10"
-        >
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="h-6 w-20 bg-white/10 rounded"
-              aria-hidden="true"
-            />
-          ))}
-        </motion.div>
-
         {/* H1 */}
         <h1 className="mb-6 max-w-5xl mx-auto">
           {words.map((word, i) => (

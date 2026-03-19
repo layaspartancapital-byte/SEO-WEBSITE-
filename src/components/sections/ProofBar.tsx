@@ -6,42 +6,49 @@ import { useScrollReveal } from '@/lib/useScrollReveal'
 import { STATS } from '@/lib/constants'
 import { fadeUp } from '@/lib/animations'
 
+const ROW_1 = [
+  'Forbes', 'Entrepreneur', 'Business Insider', 'AdWeek', 'Inc Magazine',
+  'Marketing Week', 'Fast Company', 'TechCrunch', 'Wired', 'HubSpot Blog',
+  'Search Engine Journal', 'Moz',
+]
+
+const ROW_2 = [
+  'Neil Patel', 'Content Marketing Institute', 'PR Newswire', 'Cision',
+  'PR Web', 'Business Wire', 'Globe Newswire', 'Yahoo Finance', 'Reuters',
+  'AP News', 'MarketWatch', 'Benzinga',
+]
+
+function LogoItem({ name }: { name: string }) {
+  return (
+    <span className="inline-flex items-center justify-center mx-8 h-8 px-5 text-white/[0.6] text-[13px] font-semibold tracking-wide whitespace-nowrap flex-shrink-0 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(232,101,26,0.5)] cursor-default select-none">
+      {name}
+    </span>
+  )
+}
+
 export default function ProofBar() {
   const { ref, controls, isInView } = useScrollReveal()
-
-  const clientLogos = Array.from({ length: 10 }, (_, i) => `Client ${i + 1}`)
-  const mediaLogos = ['Forbes', 'AdWeek', 'Entrepreneur', 'Inc', 'Marketing Week', 'Business Insider']
 
   return (
     <section id="proof" className="bg-ink-mid py-16" ref={ref}>
       <motion.div variants={fadeUp} initial="hidden" animate={controls}>
-        <h6 className="text-center mb-8">FEATURED IN & TRUSTED BY</h6>
+        <h6 className="text-center mb-8">FEATURED IN &amp; DISTRIBUTED THROUGH</h6>
       </motion.div>
 
-      {/* Marquee Row 1 - Left */}
-      <div className="overflow-hidden mb-8">
+      {/* Marquee Row 1 — scrolls left */}
+      <div className="overflow-hidden mb-6">
         <div className="flex animate-marquee whitespace-nowrap">
-          {[...clientLogos, ...clientLogos].map((logo, i) => (
-            <div
-              key={i}
-              className="inline-flex items-center justify-center mx-8 h-8 w-24 bg-white/10 rounded text-white/30 text-xs flex-shrink-0"
-            >
-              {logo}
-            </div>
+          {[...ROW_1, ...ROW_1, ...ROW_1].map((name, i) => (
+            <LogoItem key={`r1-${i}`} name={name} />
           ))}
         </div>
       </div>
 
-      {/* Marquee Row 2 - Right */}
+      {/* Marquee Row 2 — scrolls right */}
       <div className="overflow-hidden mb-12">
         <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {[...mediaLogos, ...mediaLogos, ...mediaLogos, ...mediaLogos].map((logo, i) => (
-            <div
-              key={i}
-              className="inline-flex items-center justify-center mx-8 h-8 px-6 bg-white/10 rounded text-white/30 text-xs flex-shrink-0"
-            >
-              {logo}
-            </div>
+          {[...ROW_2, ...ROW_2, ...ROW_2].map((name, i) => (
+            <LogoItem key={`r2-${i}`} name={name} />
           ))}
         </div>
       </div>
