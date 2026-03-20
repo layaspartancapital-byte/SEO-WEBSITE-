@@ -1,11 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Play, Pause } from 'lucide-react'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import { fadeUp } from '@/lib/animations'
 import { openCalendly } from '@/lib/useCalendlyModal'
-import { useRef, useState } from 'react'
 
 function WaveformBars({ side }: { side: 'left' | 'right' }) {
   const bars = Array.from({ length: 5 })
@@ -34,20 +32,6 @@ function WaveformBars({ side }: { side: 'left' | 'right' }) {
 
 export default function VSLSection() {
   const { ref, controls } = useScrollReveal()
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
-
-  function togglePlay() {
-    const v = videoRef.current
-    if (!v) return
-    if (v.paused) {
-      v.play()
-      setPlaying(true)
-    } else {
-      v.pause()
-      setPlaying(false)
-    }
-  }
 
   return (
     <section className="bg-ink section-padding" ref={ref}>
@@ -72,38 +56,13 @@ export default function VSLSection() {
             </div>
 
             <div className="aspect-video relative">
-              <video
-                ref={videoRef}
-                src="https://videos.pexels.com/video-files/6561429/6561429-hd_1280_720_50fps.mp4"
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                onPlay={() => setPlaying(true)}
-                onPause={() => setPlaying(false)}
+              <iframe
+                src="https://player.vimeo.com/video/1175612082?autoplay=0&title=0&byline=0&portrait=0"
+                className="absolute inset-0 w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Omnivance Media — The Full-Channel Growth System"
               />
-
-              {/* Play/Pause overlay button */}
-              <button
-                onClick={togglePlay}
-                className="absolute inset-0 z-10 flex items-center justify-center group"
-                aria-label={playing ? 'Pause video' : 'Play video'}
-              >
-                <div
-                  className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    playing
-                      ? 'bg-black/30 opacity-0 group-hover:opacity-100'
-                      : 'bg-ember shadow-lg hover:bg-ember-bright'
-                  }`}
-                >
-                  {playing ? (
-                    <Pause className="w-6 h-6 text-white" />
-                  ) : (
-                    <Play className="w-7 h-7 text-white ml-0.5" />
-                  )}
-                </div>
-              </button>
             </div>
           </div>
 
