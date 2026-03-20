@@ -51,8 +51,8 @@ export default function VSLSection() {
           <div className="relative max-w-[900px] w-full">
             {/* Tagline above video */}
             <div className="text-center mb-4">
-              <p className="text-[11px] uppercase tracking-widest text-ember font-semibold">Omnivance Media • Brand Growth Series</p>
-              <p className="text-sm text-white/70 mt-1">Ep. 1 — The Full-Channel Growth System</p>
+              <p className="text-[11px] uppercase tracking-widest text-ember font-semibold">See How We Build Brands That Dominate</p>
+              <p className="text-sm text-white/70 mt-1">Real results. Every channel. Zero guesswork.</p>
             </div>
 
             <div className="rounded-xl overflow-hidden border border-ember/30 shadow-[0_0_80px_rgba(232,101,26,0.12)]">
