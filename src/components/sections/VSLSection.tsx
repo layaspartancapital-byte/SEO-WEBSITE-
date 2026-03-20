@@ -48,13 +48,14 @@ export default function VSLSection() {
         <div className="flex items-center justify-center">
           <WaveformBars side="left" />
 
-          <div className="relative max-w-[900px] w-full rounded-xl overflow-hidden border border-ember/30 shadow-[0_0_80px_rgba(232,101,26,0.12)]">
-            {/* Episode title overlay */}
-            <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-b from-black/60 to-transparent px-6 py-4 pointer-events-none">
+          <div className="relative max-w-[900px] w-full">
+            {/* Tagline above video */}
+            <div className="text-center mb-4">
               <p className="text-[11px] uppercase tracking-widest text-ember font-semibold">Omnivance Media • Brand Growth Series</p>
-              <p className="text-sm text-white/70 mt-0.5">Ep. 1 — The Full-Channel Growth System</p>
+              <p className="text-sm text-white/70 mt-1">Ep. 1 — The Full-Channel Growth System</p>
             </div>
 
+            <div className="rounded-xl overflow-hidden border border-ember/30 shadow-[0_0_80px_rgba(232,101,26,0.12)]">
             <div className="aspect-video relative">
               <iframe
                 src="https://player.vimeo.com/video/1175612082?autoplay=0&title=0&byline=0&portrait=0"
@@ -63,6 +64,7 @@ export default function VSLSection() {
                 allowFullScreen
                 title="Omnivance Media — The Full-Channel Growth System"
               />
+            </div>
             </div>
           </div>
 
