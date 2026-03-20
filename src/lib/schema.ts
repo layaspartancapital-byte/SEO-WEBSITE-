@@ -21,7 +21,7 @@ export function organizationSchema() {
       { '@type': 'City', name: 'Boston' }, { '@type': 'City', name: 'Philadelphia' },
     ],
     sameAs: ['https://www.linkedin.com/company/omnivance-media-group/', 'https://x.com/Omnivancemedia', 'https://www.instagram.com/omnivancemedia/'],
-    contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+1-848-349-2528', email: 'omnivancemedia@gmail.com', availableLanguage: 'English' },
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+1-848-349-2528', email: 'hello@omnivancemedia.com', availableLanguage: 'English' },
     priceRange: '$',
   }
 }

@@ -35,7 +35,7 @@ export default function FinalCTA() {
         </button>
 
         <div className="mt-4">
-          <a href="mailto:omnivancemedia@gmail.com" className="btn-ghost text-sm px-6 py-2.5">
+          <a href="mailto:hello@omnivancemedia.com" className="btn-ghost text-sm px-6 py-2.5">
             Or email us →
           </a>
         </div>

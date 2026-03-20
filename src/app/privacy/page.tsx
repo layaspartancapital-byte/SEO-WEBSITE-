@@ -50,7 +50,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="text-xl text-white mb-3">Your Rights</h2>
-              <p>You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, please contact us at omnivancemedia@gmail.com.</p>
+              <p>You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, please contact us at hello@omnivancemedia.com.</p>
             </div>
 
             <div>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="text-xl text-white mb-3">Contact Us</h2>
-              <p>If you have any questions about this Privacy Policy, please contact us at omnivancemedia@gmail.com.</p>
+              <p>If you have any questions about this Privacy Policy, please contact us at hello@omnivancemedia.com.</p>
             </div>
           </div>
         </div>

@@ -58,7 +58,7 @@ export default function Footer() {
               Every Channel. Every Touchpoint. Every Result.
             </p>
             <p className="text-sm text-white/40 mb-1">
-              <a href="mailto:omnivancemedia@gmail.com" className="hover:text-ember transition-colors">omnivancemedia@gmail.com</a>
+              <a href="mailto:hello@omnivancemedia.com" className="hover:text-ember transition-colors">hello@omnivancemedia.com</a>
             </p>
             <p className="text-sm text-white/40 mb-6">
               <a href="tel:+18483492528" className="hover:text-ember transition-colors">+1 (848) 349-2528</a>
