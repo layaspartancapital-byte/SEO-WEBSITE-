@@ -9,91 +9,91 @@ const team = [
     name: 'Mathew Torres',
     role: 'Co-Founder & CEO',
     bio: 'Visionary operator who scaled Omnivance from a two-person startup into a full-service agency trusted by brands across 47 industries.',
-    seed: 'Mathew',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Laya Shah',
     role: 'Co-Founder & COO',
     bio: 'Operations architect who builds the systems and processes that let every department ship faster without cutting corners.',
-    seed: 'Laya',
+    image: '/team/laya.png',
   },
   {
     name: 'Marcus Reid',
     role: 'Chief Marketing Officer',
     bio: 'Former Fortune-500 brand strategist who now orchestrates multi-channel campaigns that turn ad spend into predictable revenue.',
-    seed: 'Marcus',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Sofia Navarro',
     role: 'SEO Director',
     bio: 'Organic search specialist with a track record of 300%+ traffic growth, obsessed with technical SEO and content-driven rankings.',
-    seed: 'Sofia',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'James Okafor',
     role: 'Head of Paid Media',
     bio: 'Data-driven PPC expert managing seven-figure ad budgets across Google, Meta, and programmatic — focused on ROAS above all else.',
-    seed: 'James',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Priya Sharma',
     role: 'Social Media Manager',
     bio: 'Community builder and content creator who turns followers into brand advocates through authentic storytelling and trend-jacking.',
-    seed: 'Priya',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Daniel Kim',
     role: 'CRM & Automation Specialist',
     bio: 'HubSpot and Salesforce certified engineer who designs lead-nurture workflows that shorten sales cycles by up to 40%.',
-    seed: 'Daniel',
+    image: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Aisha Williams',
     role: 'Content Strategist',
     bio: 'Editorial mind behind long-form thought leadership and blog strategies that rank on page one and convert readers into leads.',
-    seed: 'Aisha',
+    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Carlos Mendez',
     role: 'Brand Designer',
     bio: 'Visual storyteller who crafts identities, design systems, and creative assets that make brands impossible to ignore.',
-    seed: 'Carlos',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Elena Petrov',
     role: 'Video Production Lead',
     bio: 'Award-winning director and editor producing brand films, social reels, and TV spots that drive measurable engagement lifts.',
-    seed: 'Elena',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Ryan Thompson',
     role: 'Web Developer',
     bio: 'Full-stack engineer specializing in high-performance Next.js sites, landing pages, and conversion-optimized web experiences.',
-    seed: 'Ryan',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Zara Ahmed',
     role: 'Data Analyst',
     bio: 'Analytics expert who turns raw campaign data into clear dashboards and actionable insights that guide every growth decision.',
-    seed: 'Zara',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Noah Bennett',
     role: 'PR & Outreach Manager',
     bio: 'Media-relations pro who secures earned placements in top-tier publications and builds backlink profiles that boost domain authority.',
-    seed: 'Noah',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Isabella Chen',
     role: 'AEO/GEO Specialist',
     bio: 'Pioneering AI-search optimizer ensuring brands get cited by ChatGPT, Perplexity, and every generative engine that matters.',
-    seed: 'Isabella',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
   },
   {
     name: 'Tyler Brooks',
     role: 'Client Success Manager',
     bio: 'Relationship-first account lead who keeps every client aligned, informed, and consistently hitting their growth milestones.',
-    seed: 'Tyler',
+    image: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop&crop=face',
   },
 ]
 
@@ -163,7 +163,7 @@ export default function TeamContent() {
               {/* Avatar */}
               <div className="mx-auto mb-5 w-24 h-24 rounded-full overflow-hidden ring-2 ring-white/[0.06] group-hover:ring-ember/40 transition-all duration-300">
                 <img
-                  src={`https://api.dicebear.com/7.x/personas/svg?seed=${member.seed}`}
+                  src={member.image}
                   alt={member.name}
                   width={96}
                   height={96}
