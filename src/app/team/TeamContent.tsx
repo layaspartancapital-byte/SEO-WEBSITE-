@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { Linkedin } from 'lucide-react'
 import Link from 'next/link'
 
@@ -102,7 +102,7 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.07 } },
 }
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
