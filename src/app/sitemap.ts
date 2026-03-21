@@ -1,13 +1,14 @@
 import { MetadataRoute } from 'next'
 import { SERVICES } from '@/lib/constants'
 import { INDUSTRIES } from '@/lib/industries'
+import { LOCATIONS } from '@/lib/locationContent'
 import { getAllPosts } from '@/lib/blogPosts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://omnivancemedia.com'
 
   const staticPages = [
-    '', '/about', '/services', '/industries', '/contact', '/blog',
+    '', '/about', '/services', '/industries', '/locations', '/contact', '/blog',
     '/case-studies', '/privacy', '/terms', '/sitemap-page',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -30,21 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const cities = [
-    { city: 'New York', state: 'NY' },
-    { city: 'Los Angeles', state: 'CA' },
-    { city: 'Chicago', state: 'IL' },
-    { city: 'Houston', state: 'TX' },
-    { city: 'Miami', state: 'FL' },
-    { city: 'Atlanta', state: 'GA' },
-    { city: 'Dallas', state: 'TX' },
-    { city: 'Seattle', state: 'WA' },
-    { city: 'Boston', state: 'MA' },
-    { city: 'Philadelphia', state: 'PA' },
-  ]
-
-  const locationPages = cities.map((c) => ({
-    url: `${baseUrl}/locations/${c.city.toLowerCase().replace(/\s/g, '-')}-${c.state.toLowerCase()}`,
+  const locationPages = LOCATIONS.map((loc) => ({
+    url: `${baseUrl}/locations/${loc.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
