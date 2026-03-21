@@ -1,12 +1,13 @@
 import { MetadataRoute } from 'next'
 import { SERVICES } from '@/lib/constants'
+import { INDUSTRIES } from '@/lib/industries'
 import { getAllPosts } from '@/lib/blogPosts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://omnivancemedia.com'
 
   const staticPages = [
-    '', '/about', '/services', '/contact', '/blog',
+    '', '/about', '/services', '/industries', '/contact', '/blog',
     '/case-studies', '/privacy', '/terms', '/sitemap-page',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -49,5 +50,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...servicePages, ...blogPages, ...locationPages]
+  const industryPages = INDUSTRIES.map((i) => ({
+    url: `${baseUrl}/industries/${i.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
+
+  return [...staticPages, ...servicePages, ...industryPages, ...blogPages, ...locationPages]
 }

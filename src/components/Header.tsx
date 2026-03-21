@@ -3,20 +3,24 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Calendar, TrendingUp, Cpu, Target, Tv, Video, GitBranch, Code2, BarChart3, Newspaper, Sparkles, Mail, Instagram, Users, Building2 } from 'lucide-react'
+import { Menu, X, ChevronDown, Calendar, TrendingUp, Cpu, Target, Tv, Video, GitBranch, Code2, BarChart3, Newspaper, Sparkles, Mail, Instagram, Users, Building2, Scale, Heart, Smile, UtensilsCrossed, Home, Hammer, ShoppingCart, DollarSign, Shield, Calculator, Dumbbell, Scissors, Car, Wrench, HardHat, Zap, HeartHandshake, Laptop, Store, Hotel } from 'lucide-react'
 import { SERVICES } from '@/lib/constants'
+import { INDUSTRIES } from '@/lib/industries'
 import { openCalendly } from '@/lib/useCalendlyModal'
 
 const iconMap: Record<string, React.ElementType> = {
   TrendingUp, Cpu, Target, Tv, Video, GitBranch, Code2, BarChart3, Newspaper, Sparkles, Mail, Instagram,
+  Scale, Heart, Smile, UtensilsCrossed, Home, Hammer, ShoppingCart, DollarSign, Shield, Calculator, Dumbbell, Scissors, Car, Wrench, HardHat, Zap, HeartHandshake, Laptop, Store, Hotel,
 }
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
+  const [industriesOpen, setIndustriesOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [servicesAccordion, setServicesAccordion] = useState(false)
+  const [industriesAccordion, setIndustriesAccordion] = useState(false)
   const [aboutAccordion, setAboutAccordion] = useState(false)
 
   useEffect(() => {
@@ -37,6 +41,7 @@ export default function Header() {
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'Escape') {
       setMegaOpen(false)
+      setIndustriesOpen(false)
       setAboutOpen(false)
       setMobileOpen(false)
     }
@@ -143,6 +148,86 @@ export default function Header() {
                       </Link>
                       <button
                         onClick={() => { setMegaOpen(false); openCalendly() }}
+                        className="btn-primary text-xs py-2.5 px-5"
+                      >
+                        Book a Free Audit
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Industries dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIndustriesOpen(true)}
+            onMouseLeave={() => setIndustriesOpen(false)}
+          >
+            <button
+              className="flex items-center gap-1 text-sm font-medium text-white/60 hover:text-white transition-colors relative nav-link"
+              aria-expanded={industriesOpen}
+              aria-haspopup="true"
+            >
+              Industries
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {industriesOpen && (
+                <motion.div
+                  initial={{ clipPath: 'inset(0 0 100% 0)' }}
+                  animate={{ clipPath: 'inset(0 0 0% 0)' }}
+                  exit={{ clipPath: 'inset(0 0 100% 0)' }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  className="fixed left-0 right-0 top-[72px] bg-[rgba(8,8,8,0.97)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.06)]"
+                  role="menu"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') setIndustriesOpen(false)
+                  }}
+                >
+                  <div className="container-max mx-auto px-8 py-8">
+                    <div className="grid grid-cols-4 gap-4">
+                      {INDUSTRIES.map((industry, i) => {
+                        const Icon = iconMap[industry.icon]
+                        return (
+                          <motion.div
+                            key={industry.slug}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.03, duration: 0.3 }}
+                          >
+                            <Link
+                              href={`/industries/${industry.slug}`}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors group/item"
+                              role="menuitem"
+                              onClick={() => setIndustriesOpen(false)}
+                            >
+                              {Icon && <Icon className="w-5 h-5 text-ember mt-0.5 flex-shrink-0" />}
+                              <div>
+                                <span className="text-sm font-medium text-white group-hover/item:text-ember transition-colors">
+                                  {industry.title}
+                                </span>
+                                <p className="text-xs text-white/40 mt-0.5 line-clamp-1">
+                                  {industry.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </motion.div>
+                        )
+                      })}
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-white/[0.06] flex items-center justify-between">
+                      <Link
+                        href="/industries"
+                        className="text-sm text-white/60 hover:text-ember transition-colors"
+                        onClick={() => setIndustriesOpen(false)}
+                      >
+                        View All Industries →
+                      </Link>
+                      <button
+                        onClick={() => { setIndustriesOpen(false); openCalendly() }}
                         className="btn-primary text-xs py-2.5 px-5"
                       >
                         Book a Free Audit
@@ -269,6 +354,36 @@ export default function Header() {
                         onClick={() => setMobileOpen(false)}
                       >
                         {s.title}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Industries Accordion */}
+              <button
+                className="flex items-center justify-between py-3 text-lg font-display font-semibold"
+                onClick={() => setIndustriesAccordion(!industriesAccordion)}
+              >
+                Industries
+                <ChevronDown className={`w-5 h-5 transition-transform ${industriesAccordion ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {industriesAccordion && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden pl-4"
+                  >
+                    {INDUSTRIES.map((ind) => (
+                      <Link
+                        key={ind.slug}
+                        href={`/industries/${ind.slug}`}
+                        className="block py-2 text-sm text-white/60 hover:text-ember transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {ind.title}
                       </Link>
                     ))}
                   </motion.div>
