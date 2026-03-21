@@ -137,6 +137,179 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
   )
 }
 
+/* ---------- Scrollspy Sidebar + Content ---------- */
+
+function ScrollspyContent({ sections, title }: { sections: IndustryPageData['sections']; title: string }) {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // All nav items: content sections + key insight
+  const navItems = [
+    { label: 'Key Insight', id: 'key-insight' },
+    ...sections.map((s, i) => ({ label: s.heading, id: `section-${i}` })),
+  ]
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+
+    sectionRefs.current.forEach((el, i) => {
+      if (!el) return
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveIndex(i)
+          }
+        },
+        { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach((o) => o.disconnect())
+  }, [sections.length])
+
+  function scrollToSection(index: number) {
+    const el = sectionRefs.current[index]
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 120
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
+
+  // First section content split: first paragraph is the "Key Insight"
+  const firstSection = sections[0]
+  const firstParagraphs = firstSection ? firstSection.content.split('\n\n').filter(Boolean) : []
+  const keyInsight = firstParagraphs[0] || ''
+  const restFirstParagraphs = firstParagraphs.slice(1)
+
+  return (
+    <section className="bg-ink-mid section-padding relative">
+      {/* Subtle texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(232,101,26,1) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      <div ref={containerRef} className="container-max mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
+          {/* Left — sticky sidebar nav */}
+          <div className="hidden lg:block">
+            <div className="sticky top-28">
+              <h5 className="mb-4">ON THIS PAGE</h5>
+              <nav className="space-y-1" aria-label="Page sections">
+                {navItems.map((item, i) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(i)}
+                    className={`w-full text-left flex items-center gap-3 py-2.5 px-3 rounded-lg text-sm transition-all duration-300 group ${
+                      activeIndex === i
+                        ? 'text-ember bg-ember/[0.08]'
+                        : 'text-white/40 hover:text-white/70 hover:bg-white/[0.03]'
+                    }`}
+                  >
+                    {/* Active indicator bar */}
+                    <div
+                      className={`w-0.5 h-5 rounded-full flex-shrink-0 transition-all duration-300 ${
+                        activeIndex === i ? 'bg-ember' : 'bg-white/10 group-hover:bg-white/20'
+                      }`}
+                    />
+                    <span className="line-clamp-1">{item.label}</span>
+                  </button>
+                ))}
+              </nav>
+
+              {/* Sidebar mini CTA */}
+              <div className="mt-8 pt-6 border-t border-ink-border">
+                <p className="text-xs text-white/30 mb-3">Ready to grow?</p>
+                <button onClick={openCalendly} className="btn-primary text-xs py-2.5 px-5 w-full justify-center">
+                  Free Strategy Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right — scrolling content */}
+          <div>
+            {/* Key Insight section */}
+            <div
+              ref={(el) => { sectionRefs.current[0] = el }}
+              className="mb-16 scroll-mt-28"
+              id="key-insight"
+            >
+              <h5 className="mb-3">KEY INSIGHT</h5>
+              <h2 className="mb-6">
+                Why {title} Need Specialized Digital Marketing
+              </h2>
+
+              {/* Callout box */}
+              <div className="border-l-[3px] border-ember bg-ember/[0.04] rounded-r-lg px-6 py-5 mb-8">
+                <p className="text-xs uppercase tracking-widest text-ember font-semibold mb-2">Key Insight</p>
+                <p className="text-white/70 leading-relaxed text-[15px]">{keyInsight}</p>
+              </div>
+
+              {restFirstParagraphs.map((p, j) => (
+                <div key={j} className="mb-5 flex gap-4">
+                  <div className="w-0.5 bg-ember/20 rounded-full flex-shrink-0 mt-1.5" style={{ minHeight: 20 }} />
+                  <p className="text-white/60 leading-relaxed text-[15px]">{p}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Remaining content sections */}
+            {sections.slice(1).map((section, i) => (
+              <div
+                key={i}
+                ref={(el) => { sectionRefs.current[i + 1] = el }}
+                className="mb-16 scroll-mt-28"
+                id={`section-${i}`}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-display font-bold text-[48px] text-ember/20 leading-none">
+                    {String(i + 2).padStart(2, '0')}
+                  </span>
+                </div>
+                <h2 className="mb-4">{section.heading}</h2>
+                <div className="w-16 h-1 bg-ember rounded-full mb-8" />
+
+                {section.content.split('\n\n').map((p, j) => (
+                  <div key={j} className="mb-5 flex gap-4">
+                    <div className="w-0.5 bg-ember/20 rounded-full flex-shrink-0 mt-1.5" style={{ minHeight: 20 }} />
+                    <p className="text-white/60 leading-relaxed text-[15px]">{p}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile section nav — horizontal scrollable pills */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-ink/95 backdrop-blur-md border-t border-ink-border px-4 py-3">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
+          {navItems.map((item, i) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(i)}
+              className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-all duration-300 ${
+                activeIndex === i
+                  ? 'bg-ember/20 border-ember text-ember'
+                  : 'bg-ink-mid border-ink-border text-white/40'
+              }`}
+            >
+              {item.label.length > 25 ? item.label.slice(0, 25) + '…' : item.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ---------- Why Omnivance Card ---------- */
 
 const whyCards = [
@@ -315,47 +488,8 @@ export default function IndustryPageTemplate({ data }: { data: IndustryPageData 
         </div>
       </Section>
 
-      {/* ═══════ CONTENT SECTIONS (SEO content) ═══════ */}
-      {data.sections.map((section, i) => {
-        const isEven = i % 2 === 0
-        return (
-          <Section key={i} className={`${isEven ? 'bg-ink-mid' : 'bg-ink'} relative`}>
-            {/* Subtle texture on alternating sections */}
-            {!isEven && (
-              <div
-                className="absolute inset-0 pointer-events-none opacity-[0.015]"
-                style={{
-                  backgroundImage: 'radial-gradient(circle, rgba(232,101,26,1) 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
-            )}
-
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
-              {/* Left — heading + accent */}
-              <div className={`${i % 2 !== 0 ? 'lg:order-2' : ''}`}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-display font-bold text-[48px] text-ember/20 leading-none">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <h2 className="mb-4">{section.heading}</h2>
-                <div className="w-16 h-1 bg-ember rounded-full" />
-              </div>
-
-              {/* Right — content */}
-              <div className={`${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
-                {section.content.split('\n\n').map((p, j) => (
-                  <div key={j} className="mb-5 flex gap-4">
-                    <div className="w-0.5 bg-ember/20 rounded-full flex-shrink-0 mt-1.5" style={{ minHeight: 20 }} />
-                    <p className="text-white/60 leading-relaxed text-[15px]">{p}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Section>
-        )
-      })}
+      {/* ═══════ CONTENT SECTIONS with SCROLLSPY SIDEBAR ═══════ */}
+      <ScrollspyContent sections={data.sections} title={data.title} />
 
       {/* ═══════ SERVICES GRID ═══════ */}
       <Section className="bg-ink-mid">
