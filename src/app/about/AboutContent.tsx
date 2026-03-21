@@ -33,7 +33,7 @@ export default function AboutContent() {
       </section>
 
       <Section className="bg-ink-mid">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
           <div>
             <h5 className="mb-4">OUR STORY</h5>
             <h2 className="mb-4">Born From Frustration With Broken Agencies</h2>

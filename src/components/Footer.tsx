@@ -47,7 +47,7 @@ export default function Footer() {
   return (
     <footer className="bg-ink-soft relative">
       <div className="container-max mx-auto section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Col 1: Logo & Social */}
           <div>
             <Link href="/" className="flex items-center gap-0.5 mb-4">

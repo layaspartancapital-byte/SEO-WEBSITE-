@@ -79,13 +79,13 @@ export default function ContactContent() {
         animate={controls}
         className="bg-ink-mid section-padding"
       >
-        <div className="container-max mx-auto grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12">
+        <div className="container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[55%_45%] gap-6 md:gap-8 lg:gap-12">
           {/* Calendly */}
-          <div className="bg-ink border border-ink-border rounded-xl overflow-hidden" style={{ minHeight: 650 }}>
+          <div className="bg-ink border border-ink-border rounded-xl overflow-hidden" style={{ minHeight: 'min(650px, 80vh)' }}>
             <iframe
               src={`${SITE.calendly}?hide_gdpr_banner=1&background_color=080808&text_color=ffffff&primary_color=E8651A`}
               className="w-full h-full border-0"
-              style={{ minHeight: 650 }}
+              style={{ minHeight: 'min(650px, 80vh)' }}
               title="Schedule a strategy call"
               loading="lazy"
             />
@@ -161,7 +161,7 @@ export default function ContactContent() {
 
                 <div>
                   <label className="block text-sm text-white/60 mb-2">Services Interested In</label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {SERVICES.map((s) => (
                       <label key={s.slug} className="flex items-center gap-2 text-xs text-white/60 cursor-pointer hover:text-white transition-colors">
                         <input

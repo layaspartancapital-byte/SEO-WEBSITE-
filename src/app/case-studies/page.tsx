@@ -141,12 +141,12 @@ export default function CaseStudiesPage() {
               key={cs.slug}
               className="bg-ink border border-ink-border rounded-xl overflow-hidden"
             >
-              <div className="p-8 lg:p-12">
+              <div className="p-5 sm:p-8 lg:p-12">
                 <span className="inline-block bg-ember/20 text-ember text-[10px] uppercase font-semibold px-2 py-1 rounded tracking-wider mb-4">
                   {cs.tag}
                 </span>
-                <h2 className="text-2xl lg:text-3xl mb-4">{cs.title}</h2>
-                <p className="text-white/60 max-w-3xl mb-6">{cs.description}</p>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl mb-4">{cs.title}</h2>
+                <p className="text-white/60 max-w-3xl mb-6 text-sm sm:text-base">{cs.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-8">
                   {cs.services.map((s) => (
@@ -156,7 +156,7 @@ export default function CaseStudiesPage() {
                   ))}
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                   {cs.stats.map((stat) => (
                     <div key={stat.label}>
                       <div className="font-display font-bold text-2xl text-ember">{stat.value}</div>

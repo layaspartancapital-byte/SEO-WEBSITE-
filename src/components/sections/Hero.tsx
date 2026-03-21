@@ -39,10 +39,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: heroSequence.overline.delay, duration: 0.6, ease: springEase }}
-          className="flex items-center justify-center gap-10 mb-10"
+          className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-10 mb-10 flex-wrap"
         >
           {[NikeLogo, ShopifyLogo, HubSpotLogo, MailchimpLogo, StripeLogo].map((Logo, i) => (
-            <Logo key={i} className="h-6 w-auto text-white/40 hover:text-white/70 transition-colors duration-300" />
+            <Logo key={i} className="h-4 sm:h-5 lg:h-6 w-auto text-white/40 hover:text-white/70 transition-colors duration-300" />
           ))}
         </motion.div>
 

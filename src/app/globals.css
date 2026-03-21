@@ -36,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -49,7 +50,7 @@ body {
 h1 {
   font-family: var(--font-syne), sans-serif;
   font-weight: 700;
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.25rem, 6vw, 6.5rem);
   line-height: 1.0;
   letter-spacing: -0.03em;
   color: var(--white);
@@ -104,7 +105,7 @@ h6 {
 p {
   font-family: var(--font-inter), sans-serif;
   font-weight: 400;
-  font-size: 1.0625rem;
+  font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
   line-height: 1.75;
   color: var(--white-60);
 }
@@ -186,7 +187,14 @@ p {
 
 /* Section base */
 .section-padding {
-  @apply px-4 sm:px-6 lg:px-8 py-20 lg:py-28;
+  @apply px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-28;
+}
+
+/* Service card responsive padding */
+@media (max-width: 640px) {
+  .service-card {
+    padding: 20px;
+  }
 }
 
 .container-max {

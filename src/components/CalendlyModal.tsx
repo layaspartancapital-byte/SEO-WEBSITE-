@@ -42,8 +42,8 @@ export default function CalendlyModal() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-[900px] bg-ink-soft rounded-2xl overflow-hidden"
-            style={{ height: '80vh', maxHeight: '700px' }}
+            className="relative w-full max-w-[95vw] sm:max-w-[85vw] lg:max-w-[900px] bg-ink-soft rounded-2xl overflow-hidden"
+            style={{ height: '85vh', maxHeight: '700px' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button

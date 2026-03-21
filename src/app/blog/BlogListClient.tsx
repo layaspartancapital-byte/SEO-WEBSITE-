@@ -134,7 +134,7 @@ export default function BlogListClient({ posts }: { posts: Post[] }) {
                   }`}
                 >
                   {post.coverImage ? (
-                    <div className={`overflow-hidden ${isLarge ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
+                    <div className={`overflow-hidden ${isLarge ? 'aspect-video sm:aspect-[21/9]' : 'aspect-[16/10]'}`}>
                       <img
                         src={post.coverImage}
                         alt={post.coverImageAlt || post.title}
@@ -142,7 +142,7 @@ export default function BlogListClient({ posts }: { posts: Post[] }) {
                       />
                     </div>
                   ) : (
-                    <div className={`bg-gradient-to-br from-ember/10 to-ink ${isLarge ? 'aspect-[21/9]' : 'aspect-[16/10]'}`} />
+                    <div className={`bg-gradient-to-br from-ember/10 to-ink ${isLarge ? 'aspect-video sm:aspect-[21/9]' : 'aspect-[16/10]'}`} />
                   )}
                   <div className="p-6">
                     <CategoryBadge category={post.category} />

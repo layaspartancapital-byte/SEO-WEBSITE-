@@ -107,8 +107,8 @@ export default function Header() {
                     if (e.key === 'Escape') setMegaOpen(false)
                   }}
                 >
-                  <div className="container-max mx-auto px-8 py-8">
-                    <div className="grid grid-cols-4 gap-4">
+                  <div className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
                       {SERVICES.map((service, i) => {
                         const Icon = iconMap[service.icon]
                         return (
@@ -187,8 +187,8 @@ export default function Header() {
                     if (e.key === 'Escape') setIndustriesOpen(false)
                   }}
                 >
-                  <div className="container-max mx-auto px-8 py-8">
-                    <div className="grid grid-cols-4 gap-4">
+                  <div className="container-max mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-h-[80vh] overflow-y-auto">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
                       {INDUSTRIES.map((industry, i) => {
                         const Icon = iconMap[industry.icon]
                         return (
